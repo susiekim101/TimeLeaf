@@ -1,7 +1,8 @@
 import React from 'react'
 import '../css/startpage.css'
 
-function StartPage() {    
+function StartPage() {  
+      
     return(
         <>
             <div className="startpage-container pixelify-sans">
