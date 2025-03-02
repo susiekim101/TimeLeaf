@@ -4,29 +4,69 @@ import Notes from "./Notes";
 import "../css/Tracker.css";
 
 const Tracker = () => {
-    const [hobby, setHobby] = useState("Loading...");
+    // const [hobby, setHobby] = useState("Loading...");
+    const [hobby, setHobby] = useState({ aiInfo: "Loading...", weeklyTimeSpent: [] });
+
   
+    // useEffect(() => {
+    //     const fetchHobby = async () => {
+    //     try {
+    //         const response = await fetch("http://localhost:5000/api/hobbies"); // Update with correct backend URL
+    //         const data = await response.json();
+
+    //         if (data.length > 0) {
+    //         setHobby(data[0].aiInfo || "No Hobby Found"); // Assuming `aiInfo` contains hobby name
+    //         }
+    //     } catch (error) {
+    //         console.error("Error fetching hobby:", error);
+    //         setHobby("Error loading hobby");
+    //     }
+    //     };
+
+    //     fetchHobby();
+    // }, []);
+
     useEffect(() => {
-        const fetchHobby = async () => {
-        try {
-            const response = await fetch("http://localhost:5000/api/hobbies"); // Update with correct backend URL
-            const data = await response.json();
+      const fetchHobby = async () => {
+          try {
+              const response = await fetch("http://localhost:5000/api/hobbies"); 
+              const data = await response.json();
+  
+              if (data.length > 0) {
+                  setHobby({
+                      aiInfo: data[0].aiInfo || "No Hobby Found",
+                      weeklyTimeSpent: data[0].weeklyTimeSpent || [0, 0, 0, 0, 0, 0, 0] // Ensure it's an array
+                  });
+              }
+          } catch (error) {
+              console.error("Error fetching hobby:", error);
+              setHobby({ aiInfo: "Error loading hobby", weeklyTimeSpent: [0, 0, 0, 0, 0, 0, 0] });
+          }
+      };
+  
+      fetchHobby();
+  }, []);
+  
 
-            if (data.length > 0) {
-            setHobby(data[0].aiInfo || "No Hobby Found"); // Assuming `aiInfo` contains hobby name
-            }
-        } catch (error) {
-            console.error("Error fetching hobby:", error);
-            setHobby("Error loading hobby");
-        }
-        };
 
-        fetchHobby();
-    }, []);
+    let imageSrc = "";
+
+  // Using if statements to determine the image
+  if ( hobby.weeklyTimeSpent &&  hobby.weeklyTimeSpent[0] >= 0 &&  hobby.weeklyTimeSpent[0] < 15) {
+    imageSrc = "Bean1.png";
+  } else if (hobby.weeklyTimeSpent[0] >= 15 && hobby.weeklyTimeSpent[0] < 30) {
+    imageSrc = "Bean2.png";
+  } else if (hobby.weeklyTimeSpent[0] >= 30 && hobby.weeklyTimeSpent[0] < 45) {
+    imageSrc = "Bean3.png";
+  } else if (hobby.weeklyTimeSpent[0] >= 45 && hobby.weeklyTimeSpent[0] < 60){
+    imageSrc = "Bean4.png";
+  } else {
+    imageSrc = "Bean5.png";
+  }
 
   return (
     <div className="tracker-container">
-      <h1 className="tracker-title">{hobby}</h1>
+      {/* <h1 className="tracker-title">{hobby}</h1> */}
 
       <div className="tracker-grid">
         <div className="tracker-card info-card">
@@ -59,6 +99,8 @@ const Tracker = () => {
             <div className="day">fri <span>😊</span> <p>6h</p></div>
             <div className="day">sat <span>😊</span> <p>1h</p></div>
             <div className="day">sun <span>😊</span> <p>1h</p></div>
+            <div className="day">Current Time: {hobby.weeklyTimeSpent[0]} sec <img src={imageSrc} alt="Time-Based Image" width="300" /></div>
+     
           </div>
         </div>
       </div>
