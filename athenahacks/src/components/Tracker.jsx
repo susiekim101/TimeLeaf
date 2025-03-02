@@ -231,9 +231,9 @@ const Tracker = () => {
               <p>{hobby.aiInfo}</p>
             ) : (
               <ul>
-                <li>link</li>
-                <li>resources</li>
-                <li>more stuff</li>
+                <li>Links</li>
+                <li>Resources</li>
+                <li>More stuff</li>
               </ul>
             )}
             {hobby.additionalInfo && (
