@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/ResultsPage.css';
 import PassionCard from './PassionCard.tsx';
+import GatherHobby from './GatherHobby.jsx';
 
 function ResultsPage({ results }) {
   const navigate = useNavigate();
@@ -49,7 +50,9 @@ function ResultsPage({ results }) {
 
       <section className="results-section">
         <h2>Top Hobbies</h2>
-
+          <div className="hobbies-list">
+              <GatherHobby description={passions.map(passion => passion.name)}/>
+          </div>
       </section>
 
       <div className="actions">
