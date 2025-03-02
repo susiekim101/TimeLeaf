@@ -12,7 +12,7 @@ function StartPage() {
                 <div className="startpage-texts">
                     <h1 className="startpage-title">PassionFinder</h1>
                     <Link to="/welcomepage">
-                        <button className="startpage-button pixelify-sans">Start!</button>
+                        <button className="startpage-button pixelify-sans-start">Start!</button>
                     </Link>
                 </div>
                 <img src="basketball.png" alt="basketball" className="startpage-image basketball"></img>

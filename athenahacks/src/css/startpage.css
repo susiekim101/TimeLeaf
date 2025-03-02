@@ -4,7 +4,7 @@
     --neg-stroke-radius: -10px;
   }
 
-.pixelify-sans {
+.pixelify-sans-start {
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400; /* Change this to 700 for bold */
@@ -21,13 +21,14 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
 .startpage-title{
     text-align: center;
     font-size: 140px;
-    color: #79428F;
-    margin: 10px; 
+    color: #79428F; 
+    margin-bottom: 5px;
     text-shadow:
     -10px -10px 0 white,
     0   -5px 0 white,
@@ -49,7 +50,8 @@ body{
     display: inline-block;
     font-size: 30px;
     border-radius: 5px;
-    padding: 13px;
+    padding: 10px 20px;
+    margin-top: 5px;
     /*
     padding
     */
@@ -107,5 +109,5 @@ body{
 }
 
 .smallstar2{
-    bottom: 35%;
+    bottom: 35%; left: 23%;
 }
