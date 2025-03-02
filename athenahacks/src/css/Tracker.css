@@ -1,0 +1,97 @@
+/* Tracker.css */
+
+body {
+    background-color: #E7C5F5;
+    font-family: "Pixelify Sans", sans-serif;
+    text-align: center;
+  }
+  
+  .tracker-container {
+    padding: 20px;
+  }
+  
+  .tracker-title {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 60px;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .tracker-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+  }
+  
+  .tracker-card {
+    margin-top: 100px;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+  }
+  
+  .info-card {
+    margin-top: 100px;
+    grid-row: span 5;
+    height:860px;
+  }
+  
+  .small-card {
+    height: 400px;
+  }
+  
+  .weekly-tracker {
+    grid-column: span 2;
+    height: 300px;
+    text-align: center;
+  }
+  
+  .tracker-week {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  
+  .day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .tracker-bird {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 120px;
+  }
+  
+  /* Sparkles positioning */
+  .tracker-sparkles {
+    position: absolute;
+    width: 50px;
+  }
+  
+  .sparkles-1 {
+    bottom: 0px;
+    left: 110px;
+  }
+  
+  .sparkles-2 {
+    bottom: 8px;
+    left: 230px;
+  }
+  
+  .sparkles-3 {
+    top: 25px;
+    right: 150px;
+  }
+  
+  .sparkles-4 {
+    top: 70px;
+    right: 20px;
+  }
