@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/passioncard.css';
 
 interface Props{
     name: string;
@@ -8,12 +9,12 @@ interface Props{
 function PassionCard({name, description}: Props){
 
     return (
-        <>
+        <div className="passions-list">
         <div className="passioncard-container">
-            <h1>{name}</h1>
-            <h1>{description}</h1>
+            <div className="passioncard-name">{name}</div>
+            <div className="passioncard-description">{description}</div>
         </div>
-        </>
+        </div>
     );
 }
 

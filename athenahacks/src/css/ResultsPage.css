@@ -1,0 +1,27 @@
+.results-container{
+    font-family: "Pixelify Sans", sans-serif;
+    padding:20px;
+}
+
+.passionresults-title{
+    text-align: center;
+    font-size:40px;
+    font-weight:700;
+}
+
+.passions-list{
+    display:flex;
+    box-sizing: border-box;
+    font-family: "Pixelify Sans", sans-serif;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.actions{
+    display:flex;
+    justify-content:center;
+}
+
+.actions-button{
+    margin: 10px;
+}
