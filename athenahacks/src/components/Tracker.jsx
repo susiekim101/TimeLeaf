@@ -21,13 +21,16 @@ const Tracker = () => {
       const fetchHobbyData = async () => {
         try {
           setLoading(true);
+          console.log(`Fetching hobby data for ID: ${hobbyId}`);
           const response = await fetch(`http://localhost:5002/api/hobbies/${hobbyId}`);
           
           if (!response.ok) {
-            throw new Error("Failed to fetch hobby data");
+            throw new Error(`Failed to fetch hobby data: ${response.status}`);
           }
           
           const data = await response.json();
+          console.log("Received hobby data:", data);
+          
           setHobby({
             name: data.name || "Unnamed Hobby",
             aiInfo: data.aiInfo || "",
@@ -49,15 +52,23 @@ const Tracker = () => {
       }
     }, [hobbyId]);
 
+    /*
+    const minutesToHours = (minutes) => {
+      return (minutes / 60).toFixed(1);
+    };*/
+
     // Function to determine which Bean image to use based on hours
-    const getBeanImage = (hours) => {
-      if (hours >= 0 && hours < 2) {
+    const getBeanImage = (weeklyTimeSpent) => {
+      /*// Convert minutes to hours for the Bean image logic
+      const hours = minutes / 60;*/
+      
+      if (weeklyTimeSpent >= 0 && weeklyTimeSpent < 2) {
         return "/Bean1.png";
-      } else if (hours >= 2 && hours < 4) {
+      } else if (weeklyTimeSpent >= 2 && weeklyTimeSpent < 4) {
         return "/Bean2.png";
-      } else if (hours >= 4 && hours < 6) {
+      } else if (weeklyTimeSpent >= 4 && weeklyTimeSpent < 6) {
         return "/Bean3.png";
-      } else if (hours >= 6 && hours < 8) {
+      } else if (weeklyTimeSpent >= 6 && weeklyTimeSpent < 8) {
         return "/Bean4.png";
       } else {
         return "/Bean5.png";
@@ -71,6 +82,9 @@ const Tracker = () => {
     if (error) {
       return <div className="error">{error}</div>;
     }
+
+    // Calculate total weekly seconds (but we'll display as if they were hours)
+    const totalWeeklySeconds = hobby.weeklyTimeSpent.reduce((sum, seconds) => sum + seconds, 0);
 
     return (
       <div className="tracker-container">
@@ -112,27 +126,28 @@ const Tracker = () => {
           <div className="tracker-card weekly-tracker">
             <h2 className="card-title">Weekly Tracker</h2>
             <div className="tracker-week">
-              {hobby.weeklyTimeSpent && hobby.weeklyTimeSpent.map((hours, index) => {
+              {hobby.weeklyTimeSpent && hobby.weeklyTimeSpent.map((seconds, index) => {
                 const day = ["mon", "tues", "wed", "thur", "fri", "sat", "sun"][index];
-                const beanImage = getBeanImage(hours);
+                const beanImage = getBeanImage(seconds);
                 
                 return (
                   <div className="day" key={index}>
                     {day} 
                     <img 
                       src={beanImage} 
-                      alt={`Bean representing ${hours} hours`} 
+                      alt={`Bean representing hours`} 
                       className="day-bean"
                       width="30" 
                     />
-                    <p>{hours}h</p>
+                    {/* For demo: display seconds as if they were hours */}
+                    <p>{seconds}h</p>
                   </div>
                 );
               })}
               <div className="day current-time">
-                Current Week: {hobby.totalTimeSpent} hours
+                Current Week: {hobby.totalTimeSpent}h
                 <img 
-                  src={getBeanImage(hobby.weeklyTimeSpent.reduce((a, b) => a + b, 0))} 
+                  src={getBeanImage(totalWeeklySeconds)} 
                   alt="Weekly Bean" 
                   width="100" 
                   className="weekly-bean"
