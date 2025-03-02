@@ -6,6 +6,7 @@ import QuestionPage from './components/QuestionPage.jsx';
 import DiscoveryQuiz from './components/DiscoveryQuiz.jsx';
 import ResultsPage from './components/ResultsPage';
 import EndPage from './components/EndPage';
+import AddHobby from './components/AddHobby.jsx';
 import Stopwatch from './components/Stopwatch';
 import { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -70,6 +71,7 @@ function App() {
       <Route path="/end" element={<EndPage answers={answers} setResults={setResults} />} />
       <Route path="/results" element={<ResultsPage results={results} />} />
       <Route path="/stopwatch" element={<Stopwatch/>}/>
+      <Route path="/addhobby" element={<AddHobby/>}/>
     </Routes>
     </>
   );
