@@ -65,15 +65,16 @@ body {
   
   .tracker-bird {
     position: absolute;
-    bottom: 10px;
+    bottom: -120px;
     left: 10px;
-    width: 120px;
+    width: 250px;
   }
   
   /* Sparkles positioning */
   .tracker-sparkles {
     position: absolute;
     width: 50px;
+    top: 10px;
   }
   
   .sparkles-1 {

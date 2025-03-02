@@ -269,7 +269,7 @@ const Tracker = () => {
                     src={getBeanImage(hours)} 
                     alt={`Bean representing ${hours} hours`} 
                     className="day-bean"
-                    width="30" 
+                    width="80" 
                   />
                   <p>{hours}h</p>
                 </div>
@@ -287,6 +287,13 @@ const Tracker = () => {
           </div>
         </div>
       </div>
+
+        {/* Decorative Images */}
+        <img src="/Bird.png" alt="Athena Bird" className="tracker-bird" />
+         <img src="/Bigstar.png" alt="Sparkles" className="tracker-sparkles sparkles-1" />
+         <img src="/Bigstar.png" alt="Sparkles" className="tracker-sparkles sparkles-2" />
+         <img src="/Bigstar.png" alt="Sparkles" className="tracker-sparkles sparkles-3" />
+         <img src="/Bigstar.png" alt="Sparkles" className="tracker-sparkles sparkles-4" />
     </div>
   );
 };
