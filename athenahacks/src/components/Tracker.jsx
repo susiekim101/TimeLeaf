@@ -269,7 +269,7 @@ const Tracker = () => {
                     src={getBeanImage(hours)} 
                     alt={`Bean representing ${hours} hours`} 
                     className="day-bean"
-                    width="80" 
+                    width="90" 
                   />
                   <p>{hours}h</p>
                 </div>
