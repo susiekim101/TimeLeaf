@@ -8,19 +8,21 @@ function AddHobby() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
-    formData.append('name', hobbyName);
-    formData.append('image', image);
+    formData.append("name", hobbyName);
+    if (image) {
+      formData.append("image", image);
+    }
 
     try {
-      const response = await axios.post('/api/hobbies', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+      const response = await axios.post("http://localhost:5002/api/hobbies/add", formData, {
+        headers: { "Content-Type": "multipart/form-data" }
       });
-      console.log('Hobby added:', response.data);
+
+      console.log("Hobby added:", response.data);
     } catch (error) {
-      console.error('Error adding hobby:', error);
+      console.error("Error adding hobby:", error);
     }
   };
 
