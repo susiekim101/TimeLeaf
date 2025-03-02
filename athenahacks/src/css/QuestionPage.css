@@ -19,7 +19,7 @@
     height: 8px;
     background-color: #e9ecef;
     border-radius: 4px;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
   }
   
   .progress {
@@ -30,10 +30,11 @@
   }
   
   .progress-text {
-    top: 12px;
+    top: 20px;
     right: 0;
     font-size: 1.2rem;
     color: #666;
+    margin-top: 2rem;
   }
   
   .question-container h2 {
