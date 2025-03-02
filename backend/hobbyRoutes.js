@@ -18,7 +18,7 @@ router.post("/add", async (req, res) => {
       name,
       image, // Save image as URL
       totalTimeSpent: 0,
-      weeklyTimeSpent: [0, 0, 0, 0, 0, 0, 0],
+      weeklyTimeSpent: [, 10, 10, 10, 10, 10, 10],
       notes: null,
       additionalInfo: null
     });
@@ -110,45 +110,123 @@ router.get("/:id", async (req, res) => {
 //   }
 // });
 
+// router.post("/:id/update-time", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { timeSpent, dayIndex } = req.body;
+
+//     if (timeSpent === undefined || dayIndex === undefined) {
+//       return res.status(400).json({ message: "Time spent and day index are required." });
+//     }
+
+//     if (dayIndex < 0 || dayIndex > 6) {
+//       return res.status(400).json({ message: "Invalid day index. Must be between 0 and 6." });
+//     }
+
+//     const hobby = await Hobby.findById(id);
+//     if (!hobby) {
+//       return res.status(404).json({ message: "Hobby not found." });
+//     }
+
+//     // Ensure weeklyTimeSpent is an array of length 7
+//     if (!Array.isArray(hobby.weeklyTimeSpent) || hobby.weeklyTimeSpent.length !== 7) {
+//       hobby.weeklyTimeSpent = Array(7).fill(0);
+//     }
+
+//     // Ensure current day's value exists
+//     if (typeof hobby.weeklyTimeSpent[dayIndex] !== "number") {
+//       hobby.weeklyTimeSpent[dayIndex] = 0;
+//     }
+
+//     // Update total and weekly time
+//     hobby.totalTimeSpent = (hobby.totalTimeSpent || 0) + timeSpent;
+//     console.log("Before update:", hobby.weeklyTimeSpent);
+//     hobby.weeklyTimeSpent[dayIndex] += timeSpent;
+//     console.log("After update:", hobby.weeklyTimeSpent);
+//     hobby.markModified("weeklyTimeSpent");
+
+//     await hobby.save();
+
+//     res.json({ message: "Time updated successfully", hobby });
+//   } catch (error) {
+//     res.status(500).json({ message: "Error updating time", error: error.message });
+//   }
+// });
+
+// router.post("/:id/update-time", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { timeSpent, dayIndex } = req.body;
+
+//     if (timeSpent === undefined || dayIndex === undefined) {
+//       return res.status(400).json({ message: "Time spent and day index are required." });
+//     }
+
+//     if (dayIndex < 0 || dayIndex > 6) {
+//       return res.status(400).json({ message: "Invalid day index. Must be between 0 and 6." });
+//     }
+
+//     // Use findByIdAndUpdate with $inc and $set
+//     const updatedHobby = await Hobby.findByIdAndUpdate(
+//       id,
+//       {
+//         $inc: { totalTimeSpent: timeSpent }, // Increment total time
+//         $set: { [`weeklyTimeSpent.${dayIndex}`]: timeSpent } // Set the specific index in the array
+//       },
+//       { new: true, runValidators: true } // Return updated document
+//     );
+
+//     if (!updatedHobby) {
+//       return res.status(404).json({ message: "Hobby not found." });
+//     }
+
+//     res.json({ message: "Time updated successfully", hobby: updatedHobby });
+//   } catch (error) {
+//     res.status(500).json({ message: "Error updating time", error: error.message });
+//   }
+// });
+
 router.post("/:id/update-time", async (req, res) => {
   try {
     const { id } = req.params;
-    const { timeSpent, dayIndex } = req.body;
+    const { timeSpent, dayIndices } = req.body; // Expecting dayIndices to be an array
 
-    if (timeSpent === undefined || dayIndex === undefined) {
-      return res.status(400).json({ message: "Time spent and day index are required." });
+    if (timeSpent === undefined || !Array.isArray(dayIndices) || dayIndices.length === 0) {
+      return res.status(400).json({ message: "Time spent and an array of day indices are required." });
     }
 
-    if (dayIndex < 0 || dayIndex > 6) {
+    // Validate each day index
+    if (dayIndices.some(index => index < 0 || index > 6)) {
       return res.status(400).json({ message: "Invalid day index. Must be between 0 and 6." });
     }
 
-    const hobby = await Hobby.findById(id);
-    if (!hobby) {
+    // Construct the update object for multiple days
+    const updateFields = {};
+    dayIndices.forEach(dayIndex => {
+      updateFields[`weeklyTimeSpent.${dayIndex}`] = timeSpent;
+      console.log(timeSpent);
+    });
+
+    // Use findByIdAndUpdate with $inc and $set for multiple days
+    const updatedHobby = await Hobby.findByIdAndUpdate(
+      id,
+      {
+        $inc: { totalTimeSpent: timeSpent }, // Increment total time
+        $set: updateFields // Dynamically set multiple indices
+      },
+      { new: true, runValidators: true } // Return updated document
+    );
+
+    if (!updatedHobby) {
       return res.status(404).json({ message: "Hobby not found." });
     }
 
-    // Ensure weeklyTimeSpent is an array of length 7
-    if (!Array.isArray(hobby.weeklyTimeSpent) || hobby.weeklyTimeSpent.length !== 7) {
-      hobby.weeklyTimeSpent = Array(7).fill(0);
-    }
-
-    // Ensure current day's value exists
-    if (typeof hobby.weeklyTimeSpent[dayIndex] !== "number") {
-      hobby.weeklyTimeSpent[dayIndex] = 0;
-    }
-
-    // Update total and weekly time
-    hobby.totalTimeSpent = (hobby.totalTimeSpent || 0) + timeSpent;
-    hobby.weeklyTimeSpent[dayIndex] += timeSpent;
-
-    await hobby.save();
-
-    res.json({ message: "Time updated successfully", hobby });
+    res.json({ message: "Time updated successfully for multiple days", hobby: updatedHobby });
   } catch (error) {
     res.status(500).json({ message: "Error updating time", error: error.message });
   }
 });
+
 
 
 
