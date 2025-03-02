@@ -20,7 +20,6 @@ body{
     background-color: #E7C5F5;
 }
 
-
 button, input {
     font-family: "Pixelify Sans", sans-serif;
     font-weight: 700; /* Bold font for the button */
@@ -40,6 +39,7 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 200px;
 }
 
 #hobby-form {
@@ -53,6 +53,11 @@ label {
     font-size: 25px;
 }
 
-.img-upload {
-    margin-left: 90px;
+
+.continue-button {
+    background-color: #FFFDD6;
+}
+
+.continue-button:hover {
+    background-color: #efe499;
 }
