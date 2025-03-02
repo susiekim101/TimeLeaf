@@ -18,7 +18,7 @@ router.post("/add", async (req, res) => {
       name,
       image, // Save image as URL
       totalTimeSpent: 0,
-      weeklyTimeSpent: [0, 0, 0, 0, 0, 0, 0],
+      weeklyTimeSpent: [10, 5, 2, 0, 3, 6, 4],
       notes: null,
       additionalInfo: null
     });
