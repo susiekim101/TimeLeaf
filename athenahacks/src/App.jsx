@@ -18,6 +18,7 @@ function App() {
         <Route path="/discoveryquiz" element={<DiscoveryQuiz/>}/>
         <Route path="/resultspage" element={<ResultsPage/>}/>
         <Route path="/endpage" element={<EndPage/>}/>
+        
       </Routes>
     </>
   );
