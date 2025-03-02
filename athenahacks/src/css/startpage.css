@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
+:root {
+    --stroke-radius: 10px; /* Define the radius variable */
+    --neg-stroke-radius: -10px;
+  }
+
 .pixelify-sans {
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
@@ -14,13 +19,23 @@ body{
     text-align: center;
     font-size: 75px;
     color: #79428F;
-    margin: 10px;
+    margin: 10px; 
+    text-shadow:
+    -5px -5px 0 white,
+    0   -5px 0 white,
+    5px -5px 0 white,
+    5px  0   0 white,
+    5px  5px 0 white,
+    0    5px 0 white,
+   -5px  5px 0 white,
+   -5px  0   0 white;
+
 }
 
 .start-button{
-    background-color: white;
-    border: white 1px solid;
-    color: #79428F;
+    background-color: #79428F;
+    border: #79428F 1px solid;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
