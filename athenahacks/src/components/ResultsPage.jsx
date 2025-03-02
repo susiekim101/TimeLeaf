@@ -25,7 +25,7 @@ function ResultsPage({ results }) {
       <h1 className="passionresults-title">Your Passion Discovery Results</h1>
 
       <section className="results-section">
-        <h2>Your Top Passions</h2>
+        <h2 className="section-title">Your Top Passions</h2>
 
         <div className="passions-list">
           {passions.map((passion, index) => (
@@ -36,7 +36,7 @@ function ResultsPage({ results }) {
       </section>
 
       <section className="results-section">
-        <h2>Why These Passions Match You</h2>
+        <h2 className="section-title">Why These Passions Match You</h2>
         <p className="recommendation-list">{explanation}</p>
       </section>
 

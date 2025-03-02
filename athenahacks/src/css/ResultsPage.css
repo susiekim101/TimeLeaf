@@ -3,6 +3,10 @@
     padding:20px;
 }
 
+.section-title{
+    text-align: left;
+}
+
 .passionresults-title{
     text-align: left;
     font-size:40px;
@@ -12,10 +16,11 @@
 
 .passions-list{
     display:flex;
+    flex: 1;
     box-sizing: border-box;
     font-family: "Pixelify Sans", sans-serif;
     flex-wrap: wrap;
-    justify-content:center;
+    justify-content:flex-start;
 }
 
 .actions{
@@ -29,6 +34,7 @@
 
 .recommendations-list{
     font-size: 17px;
+    text-align: left;
 }
 
 .hobbies-name{
@@ -42,4 +48,8 @@
 
 .addHobby-button{
     float: right;
+}
+
+.results-section{
+    text-align: left;
 }
