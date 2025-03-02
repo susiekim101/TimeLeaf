@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../css/startpage.css';
 
 function StartPage() {  
-    /*const handleClick = () => */
+
     return(
         <>
             <div className="startpage-container pixelify-sans">
