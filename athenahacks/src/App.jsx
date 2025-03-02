@@ -10,8 +10,8 @@ import AddHobby from './components/AddHobby.jsx';
 import HomePage from './components/HomePage.jsx';
 import Stopwatch from './components/Stopwatch';
 import Notes from './components/Notes';
+import Tracker from './components/Tracker';
 import { useState } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
   // State and questions moved from DiscoveryQuiz
@@ -60,23 +60,26 @@ function App() {
       options: ['Imaginative', 'Analytical', 'Empathetic', 'Adventurous'],
     },
   ];
-
+  
   return (
     <>
-<Routes>
-      <Route path="/" element={<StartPage />} />
-      <Route path="/welcomepage" element={<WelcomePage />} />
-      <Route
-        path="/question/:questionNumber"
-        element={<QuestionPage questions={questions} setAnswers={setAnswers} answers={answers} />}
-      />
-      <Route path="/end" element={<EndPage answers={answers} setResults={setResults} />} />
-      <Route path="/results" element={<ResultsPage results={results} />} />
-      <Route path="/stopwatch" element={<Stopwatch/>}/>
-      <Route path="/notes" element={<Notes/>}/>
-      <Route path="/addhobby" element={<AddHobby/>}/>
-      <Route path="/homepage" element={<HomePage/>}/>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+        <Route path="/welcomepage" element={<WelcomePage />} />
+        <Route
+          path="/question/:questionNumber"
+          element={<QuestionPage questions={questions} setAnswers={setAnswers} answers={answers} />}
+        />
+        <Route path="/end" element={<EndPage answers={answers} setResults={setResults} />} />
+        <Route path="/results" element={<ResultsPage results={results} />} />
+        <Route path="/stopwatch" element={<Stopwatch/>}/>
+        <Route path="/notes" element={<Notes/>}/>
+        <Route path="/tracker" element={<Tracker/>}/>
+        {/* Add the new route with hobbyId parameter */}
+        <Route path="/tracker/:hobbyId" element={<Tracker/>}/>
+        <Route path="/addhobby" element={<AddHobby/>}/>
+        <Route path="/homepage" element={<HomePage/>}/>
+      </Routes>
     </>
   );
 }

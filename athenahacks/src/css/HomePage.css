@@ -28,6 +28,18 @@ body {
     padding: 30px;
 }
 
+/* Add link styling */
+.hobby-link {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+    display: block;
+}
+
+.hobby-link:hover {
+    transform: translateY(-5px);
+}
+
 .hobby-card {
     display: flex;
     background-color: white;
@@ -35,6 +47,7 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
 .hobby-card img {
@@ -44,8 +57,6 @@ body {
 }
 
 .hobby-card-left {
-    /* display: flex;
-    flex-direction: column; */
     display: flex;
     flex-direction: column;
     width: 200px;
@@ -70,6 +81,18 @@ body {
 
 .hobby-card:hover {
     background-color: rgb(237, 237, 237);
+}
+
+/* Loading and error states */
+.loading, .error {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 24px;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.error {
+    color: #ff4d4d;
 }
 
 /* 📱 Responsive: Make it one column on small screens */

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../css/HomePage.css'; // Assuming you have a CSS file for styling
+import { Link } from 'react-router-dom';
+import '../css/HomePage.css';
 
 function HomePage() {
   const [hobbies, setHobbies] = useState([]);
@@ -23,19 +24,24 @@ function HomePage() {
       <h1 className="homepage-h1">My Hobbies</h1>
       <div className="hobby-cards">
         {hobbies.map((hobby) => (
-          <div key={hobby._id} className="hobby-card">
-            <div className="hobby-card-left">
-                
+          <Link 
+            to={`/tracker/${hobby._id}`} 
+            key={hobby._id} 
+            className="hobby-link"
+          >
+            <div className="hobby-card">
+              <div className="hobby-card-left">
                 {hobby.image && <img src={hobby.image} alt={hobby.name} />}
-            </div>
+              </div>
 
-            <div className="hobby-card-right">
+              <div className="hobby-card-right">
                 <h2>{hobby.name}</h2>
                 <p>Total Time Spent: {hobby.totalTimeSpent} hours</p>
                 {/* <p>Notes: {hobby.notes}</p>
                 <p>Additional Info: {hobby.additionalInfo}</p> */}
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
