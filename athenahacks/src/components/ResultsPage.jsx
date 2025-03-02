@@ -20,17 +20,14 @@ function ResultsPage({ results }) {
 
   return (
     <div className="results-container">
-      <h1>Your Passion Discovery Results</h1>
+      <h1 className="passionresults-title">Your Passion Discovery Results</h1>
 
       <section className="results-section">
         <h2>Your Top Passions</h2>
 
         <div className="passions-list">
           {passions.map((passion, index) => (
-            <div key={index} className="passion-item">
-              <h3>{passion.name}</h3>
-              <p>{passion.description}</p>
-            </div>
+            <PassionCard key={index} name={passion.name} description={passion.description}/>
           ))}
         </div>
 
@@ -50,20 +47,20 @@ function ResultsPage({ results }) {
         </ul>
       </section>
 
+      <section className="results-section">
+        <h2>Top Hobbies</h2>
+
+      </section>
+
       <div className="actions">
-        <button className="secondary-button" onClick={handleRetakeQuiz}>
+        <button className="actions-button" onClick={handleRetakeQuiz}>
           Retake Quiz
         </button>
-        <button className="primary-button" onClick={() => window.print()}>
+        <button className="actions-button" onClick={() => window.print()}>
           Save My Results
         </button>
       </div>
 
-      <div className="disclaimer">
-        <p>These results are generated based on your quiz responses.
-          They're meant to inspire exploration rather than limit your possibilities.
-          We encourage you to try new things and follow your curiosity!</p>
-      </div>
     </div>
   );
 }

@@ -59,7 +59,7 @@
   margin-bottom: 2rem;
 }
 
-.start-button {
+.begin-button {
   font-family: "Pixelify Sans", sans-serif;
   background-color: #79428F;
   color: white;
@@ -71,7 +71,7 @@
   transition: all 0.3s ease;
 }
 
-.start-button:hover {
+.begin-button:hover {
   background-color: #79428F;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(73, 107, 255, 0.3);

@@ -1,0 +1,25 @@
+.passioncard-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #79428F;
+    color: white;
+    margin: 10px;
+    height:100px;
+    width:300px;
+    border-radius:10px;
+    padding:20px;
+}
+
+.passioncard-name{
+    display:flex;
+    font-size: 20px;
+    font-weight:700;
+    padding-bottom: 10px;
+    align-self: center;
+}
+
+.pasion-card-description{
+    display:flex;
+    padding:10px;
+    font-size:15px;
+}
