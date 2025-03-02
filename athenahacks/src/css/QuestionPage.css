@@ -3,7 +3,6 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
@@ -72,7 +71,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     align-self: flex-end;
-    margin-top: auto;
+    margin-top: 50px;
   }
   
   .next-button:hover {
