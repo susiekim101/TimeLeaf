@@ -10,6 +10,7 @@ import AddHobby from './components/AddHobby.jsx';
 import HomePage from './components/HomePage.jsx';
 import Stopwatch from './components/Stopwatch';
 import Notes from './components/Notes';
+import Tracker from './components/Tracker';
 import { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -74,6 +75,7 @@ function App() {
       <Route path="/results" element={<ResultsPage results={results} />} />
       <Route path="/stopwatch" element={<Stopwatch/>}/>
       <Route path="/notes" element={<Notes/>}/>
+      <Route path="/tracker" element={<Tracker/>}/>
       <Route path="/addhobby" element={<AddHobby/>}/>
       <Route path="/homepage" element={<HomePage/>}/>
     </Routes>
