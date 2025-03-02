@@ -7,10 +7,7 @@ import DiscoveryQuiz from './components/DiscoveryQuiz.jsx';
 import ResultsPage from './components/ResultsPage';
 import EndPage from './components/EndPage';
 import Stopwatch from './components/Stopwatch';
-import EndPage from './components/EndPage.jsx';
-import ResultsPage from './components/ResultsPage.jsx';
 import { useState } from 'react';
-import {Routes, Route} from 'react-router-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
