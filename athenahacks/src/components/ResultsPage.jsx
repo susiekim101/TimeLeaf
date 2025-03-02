@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/ResultsPage.css';
+import PassionCard from './PassionCard.tsx';
 
 function ResultsPage({ results }) {
   const navigate = useNavigate();
@@ -20,9 +21,10 @@ function ResultsPage({ results }) {
   return (
     <div className="results-container">
       <h1>Your Passion Discovery Results</h1>
-      
+
       <section className="results-section">
         <h2>Your Top Passions</h2>
+
         <div className="passions-list">
           {passions.map((passion, index) => (
             <div key={index} className="passion-item">
@@ -31,13 +33,14 @@ function ResultsPage({ results }) {
             </div>
           ))}
         </div>
+
       </section>
-      
+
       <section className="results-section">
         <h2>Why These Passions Match You</h2>
         <p>{explanation}</p>
       </section>
-      
+
       <section className="results-section">
         <h2>Recommended Next Steps</h2>
         <ul className="recommendations-list">
@@ -46,7 +49,7 @@ function ResultsPage({ results }) {
           ))}
         </ul>
       </section>
-      
+
       <div className="actions">
         <button className="secondary-button" onClick={handleRetakeQuiz}>
           Retake Quiz
@@ -55,11 +58,11 @@ function ResultsPage({ results }) {
           Save My Results
         </button>
       </div>
-      
+
       <div className="disclaimer">
-        <p>These results are generated based on your quiz responses. 
-        They're meant to inspire exploration rather than limit your possibilities. 
-        We encourage you to try new things and follow your curiosity!</p>
+        <p>These results are generated based on your quiz responses.
+          They're meant to inspire exploration rather than limit your possibilities.
+          We encourage you to try new things and follow your curiosity!</p>
       </div>
     </div>
   );

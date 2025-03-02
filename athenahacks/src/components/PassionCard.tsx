@@ -5,12 +5,13 @@ interface Props{
     description: string;
 }
 
-function PassionCard(passion: Props){
+function PassionCard({name, description}: Props){
 
     return (
         <>
         <div className="passioncard-container">
-
+            <h1>{name}</h1>
+            <h1>{description}</h1>
         </div>
         </>
     );
