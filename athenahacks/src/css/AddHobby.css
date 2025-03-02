@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
+:root {
+    --stroke-radius: 10px; /* Define the radius variable */
+    --neg-stroke-radius: -10px;
+  }
+
+.pixelify-sans {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Change this to 700 for bold */
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 250px;
+    justify-content: center;
+}
+
+body{
+    background-color: #E7C5F5;
+}
+
+
+button, input {
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 700; /* Bold font for the button */
+}
+
+button {
+    border-radius: 10px;
+    font-size: 25px;
+    background-color: #CA93E1;
+}
+
+button:hover {
+    background-color: #ae6dca;
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#hobby-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    font-size: 25px;
+}
+
+.img-upload {
+    margin-left: 90px;
+}
