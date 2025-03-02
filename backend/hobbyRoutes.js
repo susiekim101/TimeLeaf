@@ -32,4 +32,15 @@ router.post("/add", async (req, res) => {
   }
 });
 
+// Get all hobbies
+router.get("/", async (req, res) => {
+  try {
+    const hobbies = await Hobby.find();
+    res.json(hobbies);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching hobbies", error: error.message });
+  }
+});
+
+
 module.exports = router;
