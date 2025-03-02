@@ -8,8 +8,14 @@
     flex-direction: column;
   }
   
-  .progress-bar {
+  .progress-container{
     position: sticky;
+    border-radius: 10px;
+    padding: 2rem;
+    top:0;
+    background-color:#db94f7;
+  }
+  .progress-bar {
     height: 8px;
     background-color: #e9ecef;
     border-radius: 4px;
@@ -17,7 +23,6 @@
   }
   
   .progress {
-    position: sticky;
     height: 100%;
     background-color: #79428F;
     border-radius: 6px;
@@ -25,7 +30,6 @@
   }
   
   .progress-text {
-    position: sticky;
     top: 12px;
     right: 0;
     font-size: 1.2rem;

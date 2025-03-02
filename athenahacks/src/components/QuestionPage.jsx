@@ -35,12 +35,14 @@ function QuestionPage({ questions, setAnswers, answers }) {
 
   return (
     <div className="question-container">
-      <div className="progress-bar">
-        <div 
-          className="progress" 
-          style={{ width: `${(currentQuestionIndex / totalQuestions) * 100}%` }}
-        ></div>
-        <span className="progress-text">Question {questionNumber} of {totalQuestions}</span>
+      <div className="progress-container">
+        <div className="progress-bar">
+            <div 
+              className="progress" 
+              style={{ width: `${(currentQuestionIndex / totalQuestions) * 100}%` }}
+            ></div>
+            <span className="progress-text">Question {questionNumber} of {totalQuestions}</span>
+        </div>
       </div>
       
       <h2>{currentQuestion.question}</h2>
