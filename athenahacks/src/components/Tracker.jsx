@@ -49,19 +49,20 @@ const Tracker = () => {
       }
     }, [hobbyId]);
 
-    // Determine which bean image to display based on time spent
-    let imageSrc = "";
-    if (hobby.weeklyTimeSpent && hobby.weeklyTimeSpent[0] >= 0 && hobby.weeklyTimeSpent[0] < 15) {
-      imageSrc = "Bean1.png";
-    } else if (hobby.weeklyTimeSpent[0] >= 15 && hobby.weeklyTimeSpent[0] < 30) {
-      imageSrc = "Bean2.png";
-    } else if (hobby.weeklyTimeSpent[0] >= 30 && hobby.weeklyTimeSpent[0] < 45) {
-      imageSrc = "Bean3.png";
-    } else if (hobby.weeklyTimeSpent[0] >= 45 && hobby.weeklyTimeSpent[0] < 60){
-      imageSrc = "Bean4.png";
-    } else {
-      imageSrc = "Bean5.png";
-    }
+    // Function to determine which Bean image to use based on hours
+    const getBeanImage = (hours) => {
+      if (hours >= 0 && hours < 2) {
+        return "/Bean1.png";
+      } else if (hours >= 2 && hours < 4) {
+        return "Bean2.png";
+      } else if (hours >= 4 && hours < 6) {
+        return "Bean3.png";
+      } else if (hours >= 6 && hours < 8) {
+        return "Bean4.png";
+      } else {
+        return "Bean5.png";
+      }
+    };
 
     if (loading) {
       return <div className="loading">Loading hobby data...</div>;
@@ -111,20 +112,31 @@ const Tracker = () => {
           <div className="tracker-card weekly-tracker">
             <h2 className="card-title">Weekly Tracker</h2>
             <div className="tracker-week">
-              {hobby.weeklyTimeSpent && hobby.weeklyTimeSpent.map((time, index) => {
+              {hobby.weeklyTimeSpent && hobby.weeklyTimeSpent.map((hours, index) => {
                 const day = ["mon", "tues", "wed", "thur", "fri", "sat", "sun"][index];
-                const emoji = time > 0 ? "😊" : "😞";
-                const hours = Math.floor(time / 3600); // Convert seconds to hours
+                const beanImage = getBeanImage(hours);
                 
                 return (
                   <div className="day" key={index}>
-                    {day} <span>{emoji}</span> <p>{hours}h</p>
+                    {day} 
+                    <img 
+                      src={beanImage} 
+                      alt={`Bean representing ${hours} hours`} 
+                      className="day-bean"
+                      width="30" 
+                    />
+                    <p>{hours}h</p>
                   </div>
                 );
               })}
-              <div className="day">
-                Current Time: {hobby.weeklyTimeSpent[0]} sec 
-                <img src={imageSrc} alt="Time-Based Image" width="300" />
+              <div className="day current-time">
+                Current Week: {hobby.totalTimeSpent} hours
+                <img 
+                  src={getBeanImage(hobby.weeklyTimeSpent.reduce((a, b) => a + b, 0))} 
+                  alt="Weekly Bean" 
+                  width="100" 
+                  className="weekly-bean"
+                />
               </div>
             </div>
           </div>
