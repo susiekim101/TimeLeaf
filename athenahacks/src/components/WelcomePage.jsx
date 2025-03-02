@@ -6,7 +6,7 @@ function WelcomePage() {
   const navigate = useNavigate();
 
   const handleStart = () => {
-    navigate('/question/1');
+    navigate('/question/1'); // Navigate to the first question
   };
 
   return (
@@ -37,7 +37,7 @@ function WelcomePage() {
         </p>
         
         <button className="start-button" onClick={handleStart}>
-          Start Quiz
+          Begin Quiz
         </button>
       </div>
     </div>
