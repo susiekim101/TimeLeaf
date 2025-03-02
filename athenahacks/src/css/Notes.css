@@ -1,0 +1,28 @@
+.notes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px;
+    height: 100vh;
+  }
+  
+  .notes-textarea {
+    width: 30%;
+    height: 30%;
+    padding: 20px;
+    font-size: 30px;
+    font-family: "Pixelify Sans", sans-serif;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    outline: none;
+    resize: none;
+  }
+  
+  .notes-textarea::placeholder {
+    color: #aaa;
+    font-size: 30px;
+    font-family: "Pixelify Sans", sans-serif;
+  }

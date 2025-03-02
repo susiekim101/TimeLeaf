@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../css/AddHobby.css';
+import { useNavigate } from "react-router-dom";
 
 function AddHobby() {
+  const navigate = useNavigate();
   const [hobbyName, setHobbyName] = useState('');
   const [image, setImage] = useState(null);
 
@@ -27,7 +29,7 @@ function AddHobby() {
   };
 
   return (
-    <div className="pixelify-sans">
+    <div className="pixelify-sans" id="add-hobby">
       <h1>Add a New Hobby</h1>
       <form onSubmit={handleSubmit} id="hobby-form">
         <div>
@@ -41,18 +43,20 @@ function AddHobby() {
           />
         </div>
         <div className="img-upload">
-          <label htmlFor="image">Upload Image:</label>
-          <input
-            type="file"
-            id="image"
-            accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
-            required
-          />
-        </div>
+            <label htmlFor="image-url">Enter Image URL:</label>
+            <input
+                type="text"
+                id="image-url"
+                placeholder="Paste image link here..."
+                onChange={(e) => setImage(e.target.value)}
+                required
+            />
+</div>
         <div className="center-button">
             <button type="submit">Add Hobby</button>
         </div>
+
+        <button onClick={() => navigate("/homepage")} className="continue-button">Continue</button>
        
       </form>
     </div>

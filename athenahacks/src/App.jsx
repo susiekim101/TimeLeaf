@@ -9,6 +9,7 @@ import EndPage from './components/EndPage';
 import AddHobby from './components/AddHobby.jsx';
 import HomePage from './components/HomePage.jsx';
 import Stopwatch from './components/Stopwatch';
+import Notes from './components/Notes';
 import { useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -72,6 +73,7 @@ function App() {
       <Route path="/end" element={<EndPage answers={answers} setResults={setResults} />} />
       <Route path="/results" element={<ResultsPage results={results} />} />
       <Route path="/stopwatch" element={<Stopwatch/>}/>
+      <Route path="/notes" element={<Notes/>}/>
       <Route path="/addhobby" element={<AddHobby/>}/>
       <Route path="/homepage" element={<HomePage/>}/>
     </Routes>

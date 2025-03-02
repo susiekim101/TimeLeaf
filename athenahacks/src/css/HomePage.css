@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
+
+:root {
+    --stroke-radius: 10px;
+    --neg-stroke-radius: -10px;
+}
+
+body {
+    background-color: #E7C5F5;
+    font-family: "Pixelify Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.homepage-h1 {
+    font-family: "Pixelify Sans", sans-serif;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 50px;
+}
+
+.hobby-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 20px; /* Space between cards */
+    max-width: 1080px; /* Prevent too-wide layout */
+    margin: 50px auto; /* Center content */
+    padding: 30px;
+}
+
+.hobby-card {
+    display: flex;
+    background-color: white;
+    border-radius: var(--stroke-radius);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.hobby-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--stroke-radius);
+}
+
+.hobby-card-left {
+    /* display: flex;
+    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+    margin-right: 20px;
+}
+
+.hobby-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    width: 250px;
+    text-align: left;
+}
+
+.hobby-card-right h2 {
+    margin: 0;
+}
+
+.hobby-card:hover {
+    background-color: rgb(237, 237, 237);
+}
+
+/* 📱 Responsive: Make it one column on small screens */
+@media (max-width: 600px) {
+    .hobby-cards {
+        grid-template-columns: 1fr;
+    }
+}
