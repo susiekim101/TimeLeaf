@@ -10,7 +10,7 @@ function StartPage() {
                 <img src="athena_owl.png" alt="athena owl" className="startpage-image owl"></img>
                 <img src="ballet_shoes.png" alt="ballet shoes" className="startpage-image ballet"></img>
                 <div className="startpage-texts">
-                    <h1 className="startpage-title">PassionFinder</h1>
+                    <h1 className="startpage-title">Time Leaf</h1>
                     <Link to="/welcomepage">
                         <button className="startpage-button pixelify-sans-start">Start!</button>
                     </Link>
