@@ -15,13 +15,21 @@ body{
     background-color: #E7C5F5;
 }
 
+.startpage-texts{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .startpage-title{
     text-align: center;
-    font-size: 75px;
+    font-size: 140px;
     color: #79428F;
     margin: 10px; 
     text-shadow:
-    -5px -5px 0 white,
+    -10px -10px 0 white,
     0   -5px 0 white,
     5px -5px 0 white,
     5px  0   0 white,
@@ -32,23 +40,72 @@ body{
 
 }
 
-.start-button{
+.startpage-button{
     background-color: #79428F;
     border: #79428F 1px solid;
     color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 30px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 13px;
+    /*
+    padding
+    */
 }
 
 .startpage-container{
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+.startpage-image{
+    position: absolute;
+}
+
+.owl{
+    top: 30%; left: 5%;
+    width: 300px;
+}
+
+.basketball{
+    top: 20%; left: 35%;
+    width: 200px;
+}
+
+.ballet{
+    top: 65%; right: 35%;
+}
+
+.brush{
+    top: 10%; right: 30%;
+}
+
+.camera{
+    bottom: 15%; left: 30%;
+}
+
+.piano{
+    bottom: 27%; right: 7%;
+}
+
+.bigstar1{
+    bottom: 60%; right: 20%;
+}
+
+.smallstar1{
+    bottom: 65%; right: 17%;
+}
+
+.bigstar2{
+    bottom: 30%; left: 20%;
+}
+
+.smallstar2{
+    bottom: 35%;
+}
