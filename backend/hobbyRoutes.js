@@ -1,22 +1,26 @@
 const express = require("express");
-const multer = require("multer");
 const Hobby = require("./hobbyModel");
 
 const router = express.Router();
-const upload = multer({ dest: "uploads/" }); // Store images temporarily
 
-// add new hobby
-router.post("/add", upload.single("image"), async (req, res) => {
+// Add new hobby
+router.post("/add", async (req, res) => {
   try {
-    const { name } = req.body; // Only extracting `name` because others are missing
+    console.log("Received request body:", req.body); // Debug log
+
+    const { name, image } = req.body; // Expect image to be a URL now
+
+    if (!name || !image) {
+      return res.status(400).json({ message: "Name and image URL are required." });
+    }
 
     const newHobby = new Hobby({
       name,
-      image: req.file ? `/uploads/${req.file.filename}` : "", // Save image path
-      totalTimeSpent: 0,  // Default to 0
-      weeklyTimeSpent: [0, 0, 0, 0, 0, 0, 0], // Default to an array of 0s
-      notes: null, // Default to null
-      additionalInfo: null // Default to null
+      image, // Save image as URL
+      totalTimeSpent: 0,
+      weeklyTimeSpent: [0, 0, 0, 0, 0, 0, 0],
+      notes: null,
+      additionalInfo: null
     });
 
     await newHobby.save();
@@ -24,19 +28,7 @@ router.post("/add", upload.single("image"), async (req, res) => {
 
   } catch (error) {
     console.error("Error adding hobby:", error);
-    console.error("Is it going here?");
-    res.status(500).json({ message: "Error adding hobby", error });
-  }
-});
-
-
-// Get all hobbies
-router.get("/", async (req, res) => {
-  try {
-    const hobbies = await Hobby.find();
-    res.json(hobbies);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching hobbies", error });
+    res.status(500).json({ message: "Error adding hobby", error: error.message });
   }
 });
 
