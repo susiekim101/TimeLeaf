@@ -37,7 +37,7 @@ function WelcomePage() {
         </p>
         
         <button className="start-button" onClick={handleStart}>
-          Start Quiz
+          Begin Quiz
         </button>
       </div>
     </div>

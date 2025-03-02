@@ -21,6 +21,41 @@ function EndPage({ answers, setResults }) {
         };
       });
 
+      // For development/testing - simulate API response
+      // In production, uncomment the axios code below
+      setTimeout(() => {
+        const mockResults = {
+          passions: [
+            {
+              name: "Creative Technology",
+              description: "You enjoy combining artistic expression with technical problem-solving"
+            },
+            {
+              name: "Environmental Conservation",
+              description: "You value nature and are drawn to protecting our planet's resources"
+            },
+            {
+              name: "Educational Leadership",
+              description: "You have a talent for helping others learn and grow"
+            }
+          ],
+          explanation: "Based on your responses, you show a strong preference for activities that combine creativity with analytical thinking. You also value making a positive impact on both people and the environment.",
+          recommendations: [
+            "Explore digital art or interactive design workshops",
+            "Consider volunteering with local conservation efforts",
+            "Look into mentorship opportunities in your community",
+            "Join online communities related to your passion areas",
+            "Set aside time each week to develop skills in these areas"
+          ]
+        };
+        
+        setResults(mockResults);
+        setIsLoading(false);
+        navigate('/results');
+      }, 2000);
+
+      // Uncomment for actual API usage
+      /*
       const response = await axios.post('/api/gemini/analyze-passion', { answers: formattedAnswers });
       
       // Store results in state
@@ -28,10 +63,10 @@ function EndPage({ answers, setResults }) {
       
       // Navigate to results page
       navigate('/results');
+      */
     } catch (error) {
       console.error('Error submitting answers:', error);
       setError('There was an error processing your results. Please try again.');
-    } finally {
       setIsLoading(false);
     }
   };
@@ -53,7 +88,7 @@ function EndPage({ answers, setResults }) {
       </button>
       
       <div className="disclaimer">
-        <p>Your answers will be analyzed by AI to suggest potential passions and interests. 
+        <p>Your answers will be analyzed to suggest potential passions and interests. 
         This is meant as a starting point for self-discovery, not a definitive assessment.</p>
       </div>
     </div>
