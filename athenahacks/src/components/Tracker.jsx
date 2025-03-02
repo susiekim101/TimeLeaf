@@ -54,13 +54,13 @@ const Tracker = () => {
       if (hours >= 0 && hours < 2) {
         return "/Bean1.png";
       } else if (hours >= 2 && hours < 4) {
-        return "Bean2.png";
+        return "/Bean2.png";
       } else if (hours >= 4 && hours < 6) {
-        return "Bean3.png";
+        return "/Bean3.png";
       } else if (hours >= 6 && hours < 8) {
-        return "Bean4.png";
+        return "/Bean4.png";
       } else {
-        return "Bean5.png";
+        return "/Bean5.png";
       }
     };
 
