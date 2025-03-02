@@ -9,14 +9,15 @@
   }
   
   .progress-bar {
+    position: sticky;
     height: 8px;
     background-color: #e9ecef;
     border-radius: 4px;
     margin-bottom: 2rem;
-    position: relative;
   }
   
   .progress {
+    position: sticky;
     height: 100%;
     background-color: #79428F;
     border-radius: 6px;
@@ -24,7 +25,7 @@
   }
   
   .progress-text {
-    position: absolute;
+    position: sticky;
     top: 12px;
     right: 0;
     font-size: 1.2rem;
