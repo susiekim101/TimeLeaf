@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../css/ResultsPage.css';
 import PassionCard from './PassionCard.tsx';
 import GatherHobby from './GatherHobby.jsx';
+import { Link } from 'react-router-dom';
 
 function ResultsPage({ results }) {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ function ResultsPage({ results }) {
 
       <section className="results-section">
         <h2>Why These Passions Match You</h2>
-        <p>{explanation}</p>
+        <p className="recommendation-list">{explanation}</p>
       </section>
 
       <section className="results-section">
@@ -49,7 +50,6 @@ function ResultsPage({ results }) {
       </section>
 
       <section className="results-section">
-        <h2>Top Hobbies</h2>
           <div className="hobbies-list">
               <GatherHobby description={passions.map(passion => passion.name)}/>
           </div>
@@ -64,6 +64,11 @@ function ResultsPage({ results }) {
         </button>
       </div>
 
+      <div>
+        <Link to="/addhobby">
+          <button className="addHobby-button">Continue</button>
+        </Link>
+      </div>
     </div>
   );
 }

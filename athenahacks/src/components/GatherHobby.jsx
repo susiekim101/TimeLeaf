@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import PassionCard from './PassionCard.tsx';
+
 //   const { passions, explanation, recommendations } = results;
 
 function GatherHobby({description}){
@@ -12,7 +14,7 @@ function GatherHobby({description}){
 
     const fetchRecommendations = async (desc) => {
         try {
-            const prompt = `Give a hobby for this personality: "${description}" in JSON format witht he following structure: 
+            const prompt = `Give a unique hobby for this personality: "${description}" in JSON format witht he following structure: 
             {
                 "name": "Hobby Name",
                 "description": "Short description of the hobby",
@@ -39,17 +41,15 @@ function GatherHobby({description}){
 
     return (
         <>
-        <h1>Hobby Recommendations</h1>
-        <button onClick={handleRecs}>Get Recommendations</button>
         <div>
-            {hobbies.map((hobbies, index) => (
-                <div key={index}>
-                    <ul>
-                        {hobbies.name}
-                        <h2>{hobbies.description}</h2>
-                    </ul>
-                </div>
-            ))}
+            <button onClick={handleRecs}>Get Recommendations</button>
+            <div className="hobbies-list">
+                {hobbies.map((hobbyArray, index) => (
+                    <div key={index}>
+                        <PassionCard name={hobbyArray.name} description={hobbyArray.description}/>
+                    </div>
+                ))}
+            </div>
         </div>
         </>
     );

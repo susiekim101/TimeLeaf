@@ -4,9 +4,10 @@
 }
 
 .passionresults-title{
-    text-align: center;
+    text-align: left;
     font-size:40px;
     font-weight:700;
+    text-align: center;
 }
 
 .passions-list{
@@ -24,4 +25,21 @@
 
 .actions-button{
     margin: 10px;
+}
+
+.recommendations-list{
+    font-size: 17px;
+}
+
+.hobbies-name{
+    font-size: 17px;
+}
+
+.hobbies-list{
+    display: flex;
+    flex: 1;
+}
+
+.addHobby-button{
+    float: right;
 }
