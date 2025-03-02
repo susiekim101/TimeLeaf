@@ -6,7 +6,7 @@ function WelcomePage() {
   const navigate = useNavigate();
 
   const handleStart = () => {
-    navigate('/question/1'); // Navigate to the first question
+    navigate('/question/1');
   };
 
   return (
